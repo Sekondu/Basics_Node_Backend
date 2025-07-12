@@ -32,6 +32,9 @@ const server=http.createServer((req,res) => {
     })
 })
 
-server.listen(8080,"localhost",() => {
-    console.log(`Server is listening at http://localhost:8080`);
+const PORT = process.env.PORT || 3000;
+
+// Bind to 0.0.0.0 so Render can route requests properly
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is listening at http://0.0.0.0:${PORT}`);
 });
